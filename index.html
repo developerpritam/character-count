@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        
+        /* body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #333;
+            color: #fff;
+        } */
+
+        /* ============= todo list app css ============ */
+        /* .hidden {
+            display: none;
+        } */
+        /* ============= todo list app css ============ */
+
+        /* ============== age cal css ============== */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Roboto', sans-serif;
+        }
+  
+        main {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+    /* margin-top: 50px; */
+    /* height: 100vh; */
+    position: absolute;
+    top: 59%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* margin: 0 auto; */
+    width: 100%;
+}
+        body{
+            background: rgba(21, 195, 154, 0.2);
+        }
+        /* label{
+                font-size: 20px;
+                font-weight: 600;
+            }  */
+
+            /* ================ grammar checker =============== */
+            .container{
+                width: 50%;
+                margin: auto;
+                /* background: lightblue; */
+            }
+
+            p {
+    line-height: 1.5;
+}
+
+p.heading-title {
+    padding: 12px 0;
+}
+
+.form {
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+    padding: 15px 25px;
+    background: #fff;
+}
+
+
+            textarea {
+    width: 100%;
+    height: 260px;
+    /* margin: 25px auto 6px; */
+    display: block;
+    resize: none;
+    outline: none;
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    position: relative;
+    font-size: 16px;
+}
+
+            button {
+    padding: 15px 28px;
+    background: #15c39a;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    color: #fff;
+    /* position: relative; */
+&:hover{
+   background:  rgba(21, 195, 154, 0.7);
+}
+
+}
+
+.empty-box {
+    color: red;
+    margin: 6px;
+    font-size: 14px;
+}
+
+.counter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.form-copy::before{
+    content: 'Copied';
+    background: #333;
+    height: 22px;
+    width: 60px;
+    padding: 2px 6px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 22px;
+    z-index: 9;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+.form-copy::after{
+    height: 10px;
+    width: 10px;
+    content: '';
+    position: absolute;
+    background: #333;
+    bottom: 65px;
+    left: 49.2%;
+    /* transform: translateX(-50%); */
+    transform: rotate(45deg);
+    z-index: 8;
+}
+
+
+            /* ================ grammar checker =============== */
+
+    
+    </style>
+</head>
+
+<body>
+    <main>
+    <!-- temprature converter html start -->
+    <!-- <form id="tempCalc" onsubmit="calculateTemp(); return false">
+        <label for="temp">Please enter the temprature you'd like to convert</label><br />
+        <input type="number" name="temp" id="temp" placeholder="Type Number">
+
+        <select name="temp_diff" id="temp_diff">
+            <option value="cel">°Celsius</option>
+            <option value="fah">°Fahrenheit</option>
+        </select><br /><br />
+
+        <input type="submit" name="temp">
+        <span id="resultContainer"></span>
+    </form> -->
+    <!-- temprature converter html end -->
+
+   
+    <!-- ================ placeholder image generator =============== -->
+    <!-- <h2>Placeholder Image Path Generator</h2><br>
+    <label for="selectImage">Image Size:
+    <select id="selectImage">
+        <option value="150x50" disabled selected>Select Image Size</option>
+        <option value="150x50">Small (150x50)</option>
+        <option value="200x200">Medium (200x200)</option>
+        <option value="250x100">Medium (250x100)</option>
+        <option value="350x150">Medium (350x150)</option>
+        <option value="400x400">Large Square (400x400)</option>
+        <option value="550x350">Large (550x350)</option>
+        <option value="600x400">Large (600x400)</option>
+        <option value="800x600">X-Large (800x600)</option>
+        <option value="1920x1080">Full HD (1920x1080)</option>
+    </select>
+</label>
+    <br>
+    <div class="parent">
+        <label for="nameOnImage">Text on Image: </label><input type="text" id="nameOnImage">
+    </div><br>
+
+    <div class="parent">
+        <label for="backgroundColor">Color of Background: </label><input type="color" id="backgroundColor">
+    </div><br>
+
+    <div class="parent">
+        <label for="textColor">Color of Text: </label><input type="color" id="textColor">
+    </div><br>
+
+    <div class="container">
+        <img src="" alt="" download="f" target="_blank">
+        <a href="" class="download" download="f" target="_blank">Click to Download</a>
+        <br />
+        <label for="urlPath"></label>
+        <br>
+        <textarea name="" id="urlPath" cols="40" rows="3" placeholder=" Link will be available here"></textarea>
+    </div> -->
+
+    <!-- ================ placeholder image generator =============== -->
+
+    <div class="container">
+        
+        <form class="form">
+            <h2>Real Time Character Counter</h2>
+        <p class="heading-title">Check your English text for grammar, spelling, and punctuation errors with This real time character Counter</p>
+        <textarea id="textarea" class="textarea" maxlength="1000" placeholder="Please write text"></textarea>
+        <p class="empty-box"></p>
+
+        <button onclick="copyText(); return false;">Copy Text</button>
+        <div class="counter-container">
+            <p>Total character: <span id="total-counter">0</span></p>
+            <p>Remaining: <span id="remaining-counter">1000</span></p>
+        </div>
+    </form>
+        
+    </div>
+ 
+    </main>
+
+    <script>
+
+        const textArea = document.getElementById('textarea');
+        const emptyAlert = document.querySelector('.empty-box');
+        const copyItem = document.querySelector('.form');
+        const button = document.querySelector('button');
+        let totalCount = document.getElementById('total-counter');
+        let remainingCount = document.getElementById('remaining-counter');
+
+
+    function copyText() {
+        if(textArea.value == ""){
+            emptyAlert.innerHTML = 'You must fill the box to write something';
+            }else{
+                emptyAlert.innerHTML = null;
+            }
+
+            textArea.select();
+            textArea.setSelectionRange(0, 9999);
+            navigator.clipboard.writeText(textArea.value);
+    }
+
+    let char = 0;
+
+    function updateCount(){
+        userChar = textArea.value.length;
+
+        totalCount.innerText = userChar;
+        remainingCount.innerText = 1000 - userChar;
+    }
+
+    textArea.addEventListener('keyup', () => updateCount());
+
+    button.addEventListener('click', () => {
+        copyItem.classList.add('form-copy');
+        if(textArea.value == ""){
+            copyItem.classList.remove('form-copy');
+        }
+
+        setTimeout(() => {
+        copyItem.classList.remove('form-copy');
+    }, 2000);
+    })
+
+        
+
+    // const copyText = () => {
+    //     textArea.select();
+    // }
+
+
+       
+
+
+
+
+        // =========================== temprature converter Javascript start ===========================
+        // const calculateTemp = () => {
+        //     const numberTemp = document.getElementById('temp').value;
+        //     const tempSelected = document.getElementById('temp_diff');
+        //     const valueTemp = temp_diff.options[tempSelected.selectedIndex].value;
+        //     console.log(numberTemp);
+
+
+        //     const celToFah = (myCels) => {
+        //         let fahrenheit = Math.round((myCels * 9/5) + 32);
+        //         return fahrenheit;
+        //     }
+        //     const fehToCel = (myFerh) => {
+        //         let celsius = Math.round((myFerh - 32) * 5/9);
+        //         return celsius;
+        //     }
+
+
+        //     let result;
+
+        //     if(valueTemp == 'cel'){
+        //         result = celToFah(numberTemp);
+        //         document.getElementById('resultContainer').innerHTML = `= ${result}°Fahrenheit`;
+        //     }else{
+        //          result = fehToCel(numberTemp);
+        //         document.getElementById('resultContainer').innerHTML = `= ${result}°Celsius`;
+        //     }
+
+        // }
+        // =========================== temprature converter Javascript end ===========================
+
+
+        // ============ Placeholder Image generator ============
+
+            // const select = document.querySelector('select');
+            // const inputAll = document.querySelectorAll('input')
+            // let myImg = document.querySelector('img');
+            // let textArea = document.querySelector('textarea');
+            // // let download = document.querySelector('download');
+
+            // console.log(inputAll);
+
+            // let urlObj = {};
+
+            // const removeHashTag = (str) => {
+            //     return str.replace("#", "")
+            // }
+
+            // const addPlus = (str) => {
+            //     return str.split(" ").join("+");
+            // }
+
+
+            // const createImgPath = () => { 
+
+            //     urlObj.size = select.value;
+            //     urlObj.text = addPlus(inputAll[0].value);
+            //     urlObj.bgClr = removeHashTag(inputAll[1].value);
+            //     urlObj.txtClr = removeHashTag(inputAll[2].value);
+
+            //    let urlPath = `http://via.placeholder.com/${urlObj.size}/${urlObj.bgClr}/${urlObj.txtClr}?text=${urlObj.text}`
+
+            //     myImg.src = urlPath;
+            //     textArea.value = urlPath;
+
+            //     textArea.focus();
+            //     textArea.select();
+
+
+            //     navigator.clipboard.writeText(textArea.value)
+            //     .then(() => {
+            //         console.log('Text copied to clipboard');
+            //     })
+            //     .catch(err => {
+            //         console.error('Error copying text: ', err);
+            //     });
+    
+            // }
+
+            // inputAll.forEach((currElem) => currElem.addEventListener('click', createImgPath));
+            // select.addEventListener('change', createImgPath)
+
+        // ============ Placeholder Image generator ============
+
+
+
+       
+    </script>
+
+
+</body>
+
+</html>
